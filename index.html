@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#1a1a2e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Maîtrisez le Genre</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+
+    <!-- SPLASH SCREEN -->
+    <section id="screen-splash" class="screen screen--active">
+      <div class="splash-content">
+        <h1 class="splash-title">Maîtrisez<br><span class="splash-le">le</span> <span class="splash-la">la</span><br>Genre</h1>
+        <p class="splash-subtitle">Les terminaisons masculines et féminines</p>
+        <p class="splash-tap">Appuyez pour commencer</p>
+      </div>
+    </section>
+
+    <!-- LESSON SCREEN -->
+    <section id="screen-lesson" class="screen">
+      <div class="lesson-header">
+        <button id="btn-progress" class="btn-text" aria-label="Voir le progrès">Progrès</button>
+      </div>
+
+      <div class="lesson-content">
+        <p class="lesson-intro">La terminaison</p>
+        <div id="lesson-badge" class="suffix-badge"></div>
+        <p id="lesson-gender-label" class="lesson-gender-label"></p>
+
+        <div class="rule-card" id="lesson-rule-card">
+          <p class="rule-title">Règle</p>
+          <p id="lesson-rule" class="rule-text"></p>
+          <p id="lesson-explanation" class="rule-explanation"></p>
+        </div>
+
+        <div class="examples-section">
+          <p class="examples-title">Exemples</p>
+          <ul id="lesson-examples" class="examples-list"></ul>
+        </div>
+      </div>
+
+      <div class="lesson-footer">
+        <button id="btn-start-quiz" class="btn-primary">Commencer le quiz</button>
+        <button id="btn-skip-lesson" class="btn-text">Passer au quiz</button>
+      </div>
+    </section>
+
+    <!-- QUIZ SCREEN -->
+    <section id="screen-quiz" class="screen">
+      <div class="quiz-header">
+        <span id="quiz-counter" class="quiz-counter"></span>
+        <div class="progress-bar">
+          <div id="quiz-progress" class="progress-bar__fill"></div>
+        </div>
+      </div>
+
+      <div class="quiz-content">
+        <p class="quiz-prompt">Quelle phrase est correcte ?</p>
+
+        <button id="quiz-option-a" class="option-card" data-choice="a">
+          <span class="option-letter">A</span>
+          <span id="quiz-text-a" class="option-text"></span>
+        </button>
+
+        <button id="quiz-option-b" class="option-card" data-choice="b">
+          <span class="option-letter">B</span>
+          <span id="quiz-text-b" class="option-text"></span>
+        </button>
+      </div>
+
+      <!-- FEEDBACK (shown after answering) -->
+      <div id="quiz-feedback" class="quiz-feedback hidden">
+        <div id="feedback-icon" class="feedback-icon"></div>
+        <p id="feedback-label" class="feedback-label"></p>
+
+        <div id="feedback-correct-card" class="feedback-correct-card">
+          <p id="feedback-correct-text" class="feedback-correct-text"></p>
+        </div>
+
+        <div id="feedback-rule" class="feedback-rule hidden">
+          <p class="feedback-rule-title">Règle</p>
+          <p id="feedback-rule-text" class="feedback-rule-text"></p>
+          <p class="feedback-examples-title">Autres exemples :</p>
+          <ul id="feedback-examples" class="feedback-examples"></ul>
+        </div>
+
+        <button id="btn-next" class="btn-primary btn-next">Suivant</button>
+      </div>
+    </section>
+
+    <!-- RESULTS SCREEN -->
+    <section id="screen-results" class="screen">
+      <div class="results-content">
+        <h2 class="results-title">Résultats</h2>
+        <p id="results-score" class="results-score"></p>
+
+        <div class="results-bar-container">
+          <div class="progress-bar progress-bar--large">
+            <div id="results-progress" class="progress-bar__fill"></div>
+          </div>
+          <span id="results-percent" class="results-percent"></span>
+        </div>
+
+        <div id="results-suffixes" class="results-suffixes">
+          <p class="results-suffixes-title">Terminaisons travaillées</p>
+        </div>
+
+        <div id="results-weakest" class="results-weakest hidden">
+          <p class="results-weakest-label">Point faible</p>
+          <p id="results-weakest-suffix" class="results-weakest-suffix"></p>
+          <p id="results-weakest-rule" class="results-weakest-rule"></p>
+        </div>
+      </div>
+
+      <div class="results-footer">
+        <button id="btn-new-lesson" class="btn-primary">Nouvelle leçon</button>
+        <button id="btn-review-errors" class="btn-text hidden">Revoir les erreurs</button>
+      </div>
+
+      <div id="results-errors-review" class="results-errors-review hidden"></div>
+    </section>
+
+    <!-- PROGRESS OVERLAY -->
+    <div id="overlay-progress" class="overlay hidden">
+      <div class="overlay-content">
+        <div class="overlay-header">
+          <h2 class="overlay-title">Votre progrès</h2>
+          <button id="btn-close-progress" class="btn-close" aria-label="Fermer">&times;</button>
+        </div>
+        <div id="progress-list" class="progress-list"></div>
+        <div class="overlay-footer">
+          <button id="btn-reset" class="btn-text btn-danger">Réinitialiser tout</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
