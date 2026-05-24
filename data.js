@@ -441,6 +441,94 @@ const TEMPLATES = [
 ];
 
 // ============================================================
+// SUFFIX → COMPATIBLE ADJECTIVES (by masculine form)
+// Only adjectives that produce natural sentences with the suffix's words
+// ============================================================
+
+const SUFFIX_ADJ = {
+  "tion": {
+    post: ["important", "intéressant", "différent", "essentiel", "parfait", "complet", "correct", "excellent", "récent", "spécial", "nouveau", "français", "particulier", "original", "fort"],
+    pre: ["bon", "grand", "nouveau", "premier", "dernier", "mauvais", "petit"]
+  },
+  "sion": {
+    post: ["important", "intéressant", "différent", "essentiel", "parfait", "complet", "correct", "excellent", "récent", "spécial", "nouveau", "français", "particulier", "original", "fort"],
+    pre: ["bon", "grand", "nouveau", "premier", "dernier", "mauvais", "petit"]
+  },
+  "ite": {
+    post: ["important", "intéressant", "différent", "naturel", "essentiel", "parfait", "excellent", "récent", "spécial", "nouveau", "français", "particulier", "original"],
+    pre: ["bon", "grand", "nouveau", "premier", "dernier", "mauvais", "beau"]
+  },
+  "ure": {
+    post: ["important", "intéressant", "différent", "naturel", "parfait", "ancien", "dangereux", "excellent", "français", "idéal", "original", "particulier", "récent", "spécial", "nouveau", "précieux"],
+    pre: ["beau", "bon", "grand", "petit", "nouveau", "vieux", "premier", "dernier", "joli", "mauvais"]
+  },
+  "ence": {
+    post: ["important", "intéressant", "différent", "naturel", "essentiel", "parfait", "excellent", "récent", "spécial", "nouveau", "français", "particulier", "original", "fort"],
+    pre: ["bon", "grand", "nouveau", "premier", "dernier", "mauvais", "beau"]
+  },
+  "ie": {
+    post: ["important", "intéressant", "différent", "naturel", "essentiel", "parfait", "ancien", "excellent", "français", "idéal", "original", "particulier", "récent", "spécial", "nouveau"],
+    pre: ["bon", "grand", "nouveau", "vieux", "beau", "mauvais"]
+  },
+  "esse": {
+    post: ["important", "intéressant", "différent", "naturel", "parfait", "récent", "spécial", "nouveau", "particulier", "original", "fort"],
+    pre: ["bon", "grand", "nouveau", "beau", "mauvais"]
+  },
+  "ette": {
+    post: ["important", "intéressant", "différent", "parfait", "ancien", "dangereux", "excellent", "français", "idéal", "léger", "original", "particulier", "précieux", "récent", "spécial", "nouveau"],
+    pre: ["beau", "bon", "grand", "petit", "nouveau", "vieux", "premier", "dernier", "joli", "gros", "mauvais"]
+  },
+  "ade": {
+    post: ["important", "intéressant", "différent", "parfait", "dangereux", "excellent", "français", "idéal", "original", "particulier", "récent", "spécial", "nouveau"],
+    pre: ["beau", "bon", "grand", "petit", "nouveau", "vieux", "premier", "dernier", "joli", "long", "mauvais"]
+  },
+  "ee": {
+    post: ["important", "intéressant", "différent", "parfait", "excellent", "français", "idéal", "original", "particulier", "récent", "spécial", "nouveau"],
+    pre: ["beau", "bon", "grand", "petit", "nouveau", "vieux", "premier", "dernier", "joli", "long", "mauvais"]
+  },
+  "ment": {
+    post: ["important", "intéressant", "différent", "naturel", "essentiel", "parfait", "complet", "correct", "excellent", "français", "idéal", "original", "particulier", "récent", "spécial", "nouveau", "fort"],
+    pre: ["bon", "grand", "nouveau", "premier", "dernier", "mauvais", "petit", "beau"]
+  },
+  "age": {
+    post: ["important", "intéressant", "différent", "naturel", "parfait", "complet", "dangereux", "excellent", "français", "idéal", "original", "particulier", "récent", "spécial", "nouveau"],
+    pre: ["bon", "grand", "petit", "nouveau", "premier", "dernier", "mauvais", "long", "beau", "joli"]
+  },
+  "isme": {
+    post: ["important", "intéressant", "différent", "naturel", "essentiel", "parfait", "dangereux", "français", "idéal", "original", "particulier", "récent", "spécial", "nouveau", "puissant", "européen"],
+    pre: ["bon", "grand", "nouveau", "premier", "dernier", "mauvais", "vieux", "beau"]
+  },
+  "eur": {
+    post: ["important", "intéressant", "différent", "parfait", "excellent", "français", "idéal", "particulier", "récent", "spécial", "nouveau"],
+    pre: ["bon", "grand", "nouveau", "premier", "dernier", "mauvais", "beau", "vieux", "petit"]
+  },
+  "ail": {
+    post: ["important", "intéressant", "différent", "parfait", "ancien", "excellent", "français", "idéal", "original", "particulier", "précieux", "récent", "spécial", "nouveau"],
+    pre: ["beau", "bon", "grand", "petit", "nouveau", "vieux", "premier", "dernier", "joli", "gros"]
+  },
+  "eau": {
+    post: ["important", "intéressant", "différent", "parfait", "ancien", "dangereux", "excellent", "français", "idéal", "léger", "original", "particulier", "précieux", "récent", "spécial", "nouveau"],
+    pre: ["beau", "bon", "grand", "petit", "nouveau", "vieux", "premier", "dernier", "joli", "gros", "mauvais"]
+  },
+  "et": {
+    post: ["important", "intéressant", "différent", "parfait", "ancien", "complet", "correct", "excellent", "français", "idéal", "original", "particulier", "précieux", "récent", "spécial", "nouveau"],
+    pre: ["beau", "bon", "grand", "petit", "nouveau", "vieux", "premier", "dernier", "joli", "gros", "mauvais"]
+  },
+  "oir": {
+    post: ["important", "intéressant", "différent", "parfait", "ancien", "dangereux", "excellent", "français", "idéal", "original", "particulier", "récent", "spécial", "nouveau"],
+    pre: ["beau", "bon", "grand", "petit", "nouveau", "vieux", "premier", "dernier", "joli", "mauvais"]
+  },
+  "in": {
+    post: ["important", "intéressant", "différent", "parfait", "ancien", "dangereux", "excellent", "français", "idéal", "original", "particulier", "récent", "spécial", "nouveau"],
+    pre: ["beau", "bon", "grand", "petit", "nouveau", "vieux", "premier", "dernier", "joli", "gros", "mauvais"]
+  },
+  "on": {
+    post: ["important", "intéressant", "différent", "parfait", "ancien", "dangereux", "excellent", "français", "idéal", "original", "particulier", "récent", "spécial", "nouveau", "fort"],
+    pre: ["beau", "bon", "grand", "petit", "nouveau", "vieux", "premier", "dernier", "joli", "gros", "mauvais"]
+  }
+};
+
+// ============================================================
 // ENGLISH TRANSLATIONS (noun → English)
 // ============================================================
 

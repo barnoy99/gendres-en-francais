@@ -191,7 +191,17 @@
   // ─── QUIZ GENERATION ──────────────────────────────────
   function makeQ(word, suffix) {
     var tpl = pick(TEMPLATES);
-    var pool = tpl.adjPos === 'pre' ? ADJECTIVES_PRE : ADJECTIVES_POST;
+    var fullPool = tpl.adjPos === 'pre' ? ADJECTIVES_PRE : ADJECTIVES_POST;
+    var compat = SUFFIX_ADJ[suffix.id];
+    var compatList = compat ? (tpl.adjPos === 'pre' ? compat.pre : compat.post) : null;
+    var pool = fullPool;
+    if (compatList) {
+      var filtered = [];
+      for (var j = 0; j < fullPool.length; j++) {
+        if (compatList.indexOf(fullPool[j].m) >= 0) filtered.push(fullPool[j]);
+      }
+      if (filtered.length) pool = filtered;
+    }
     var a = pick(pool);
     var pair = genPair(word, suffix, tpl, a);
     var cPos = Math.random() < 0.5 ? 'a' : 'b';
