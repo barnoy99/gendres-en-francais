@@ -514,6 +514,13 @@ ul {
   color: var(--text-heading);
 }
 
+.feedback-translation {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-top: 0.35rem;
+}
+
 .feedback-rule {
   background: var(--bg-card);
   border-radius: var(--radius-md);

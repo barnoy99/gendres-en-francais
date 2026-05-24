@@ -105,6 +105,21 @@
     return g === 'm' ? a.m : a.f;
   }
 
+  // ─── ENGLISH HELPERS ────────────────────────────────────
+  function aOrAn(nextWord) {
+    return /^[aeiou]/i.test(nextWord) ? 'an' : 'a';
+  }
+
+  function genEnglish(word, tpl, adjective) {
+    var nEn = NOUN_EN[word] || word;
+    var adjEn = adjective.en || adjective.m;
+    var s = tpl.enPattern;
+    s = s.replace('{n}', nEn);
+    s = s.replace('{adj}', adjEn);
+    s = s.replace('{a}', aOrAn(adjEn));
+    return s.charAt(0).toUpperCase() + s.slice(1);
+  }
+
   // ─── SENTENCE GENERATION ──────────────────────────────
   function genPair(word, suffix, tpl, adjective) {
     var g = suffix.gender;
@@ -137,13 +152,13 @@
       return s.charAt(0).toUpperCase() + s.slice(1);
     }
 
-    return { correct: fill(g), incorrect: fill(wrong) };
+    return { correct: fill(g), incorrect: fill(wrong), english: genEnglish(word, tpl, adjective) };
   }
 
   // ─── SUFFIX SELECTION (weighted rotation) ──────────────
   function weak(id) {
     var s = state.scores[id];
-    if (!s || s.total === 0) return 0.7;
+    if (!s || s.total === 0) return 0.4;
     return 1 - s.correct / s.total;
   }
 
@@ -155,8 +170,9 @@
     var q = ids.slice();
     for (var i = 0; i < ids.length; i++) {
       var w = weak(ids[i]);
+      if (w > 0.3) q.splice(1 + Math.floor(Math.random() * (q.length - 1)), 0, ids[i]);
       if (w > 0.5) q.splice(1 + Math.floor(Math.random() * (q.length - 1)), 0, ids[i]);
-      if (w > 0.75) q.splice(1 + Math.floor(Math.random() * (q.length - 1)), 0, ids[i]);
+      if (w > 0.7) q.splice(1 + Math.floor(Math.random() * (q.length - 1)), 0, ids[i]);
     }
     return q;
   }
@@ -186,6 +202,7 @@
       suffix: suffix,
       correct: pair.correct,
       incorrect: pair.incorrect,
+      english: pair.english,
       correctPos: cPos,
       textA: cPos === 'a' ? pair.correct : pair.incorrect,
       textB: cPos === 'b' ? pair.correct : pair.incorrect
@@ -351,15 +368,13 @@
       }
     }
 
+    $('feedback-translation').textContent = q.english;
+
     $('quiz-feedback').classList.remove('hidden');
 
     setTimeout(function () {
       $('quiz-feedback').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }, 50);
-
-    if (ok) {
-      advanceTimer = setTimeout(advance, 1500);
-    }
   }
 
   // ─── ADVANCE / FINISH ─────────────────────────────────
