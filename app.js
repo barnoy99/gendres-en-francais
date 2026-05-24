@@ -5,7 +5,7 @@
   var STORAGE_KEY = 'genresFR_state';
   var VERSION = 1;
   var QUIZ_SIZE = 15;
-  var LESSON_Q = 5;
+  var LESSON_Q = 8;
   var RECENT_MAX = 60;
 
   // ─── MODULE STATE ──────────────────────────────────────
@@ -217,7 +217,7 @@
     for (var i = 0; i < SUFFIXES.length; i++) {
       if (SUFFIXES[i].id !== lesson.id) {
         others.push(SUFFIXES[i]);
-        weights.push(0.3 + 0.7 * weak(SUFFIXES[i].id));
+        weights.push(0.1 + 0.9 * Math.pow(weak(SUFFIXES[i].id), 0.5));
       }
     }
 
