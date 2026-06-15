@@ -24,9 +24,135 @@
       </div>
     </section>
 
+    <!-- HOME SCREEN -->
+    <section id="screen-home" class="screen">
+      <div class="home-content">
+        <h1 class="home-title">Maîtrisez le Français</h1>
+        <p class="home-subtitle">Choisissez votre exercice</p>
+
+        <button id="card-genre" class="home-card home-card--genre">
+          <span class="home-card__icon"><span class="splash-le">le</span> <span class="splash-la">la</span></span>
+          <span class="home-card__title">Le Genre</span>
+          <span class="home-card__desc">Masculin ou féminin ? Maîtrisez les terminaisons.</span>
+        </button>
+
+        <button id="card-verb" class="home-card home-card--verb">
+          <span class="home-card__icon"><span class="prep-a">à</span> <span class="prep-de">de</span></span>
+          <span class="home-card__title">Les Prépositions</span>
+          <span class="home-card__desc">Verbe + à, de ou rien ? Maîtrisez les prépositions.</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- VERB LESSON SCREEN -->
+    <section id="screen-verb-lesson" class="screen">
+      <div class="lesson-header">
+        <button id="btn-verb-home" class="btn-text" aria-label="Retour">Accueil</button>
+        <button id="btn-verb-progress" class="btn-text" aria-label="Voir le progrès">Progrès</button>
+      </div>
+
+      <div class="lesson-content">
+        <p class="lesson-intro">Le verbe</p>
+        <div id="verb-lesson-badge" class="verb-badge"></div>
+
+        <div id="verb-lesson-en" class="verb-en"></div>
+
+        <div class="rule-card verb-rule-card">
+          <p class="rule-title">Règle</p>
+          <p id="verb-lesson-rule" class="rule-text"></p>
+        </div>
+
+        <div class="examples-section">
+          <p class="examples-title">Exemples</p>
+          <ul id="verb-lesson-examples" class="examples-list verb-examples-list"></ul>
+        </div>
+      </div>
+
+      <div class="lesson-footer">
+        <button id="btn-start-verb-quiz" class="btn-primary btn-primary--verb">Commencer le quiz</button>
+        <button id="btn-skip-verb-lesson" class="btn-text">Passer au quiz</button>
+      </div>
+    </section>
+
+    <!-- VERB QUIZ SCREEN -->
+    <section id="screen-verb-quiz" class="screen">
+      <div class="quiz-header">
+        <span id="vquiz-counter" class="quiz-counter"></span>
+        <div class="progress-bar">
+          <div id="vquiz-progress" class="progress-bar__fill progress-bar__fill--verb"></div>
+        </div>
+      </div>
+
+      <div class="quiz-content">
+        <p class="quiz-prompt">Quelle phrase est correcte ?</p>
+
+        <button id="vquiz-option-a" class="option-card" data-choice="a">
+          <span class="option-letter option-letter--verb">A</span>
+          <span id="vquiz-text-a" class="option-text"></span>
+        </button>
+
+        <button id="vquiz-option-b" class="option-card" data-choice="b">
+          <span class="option-letter option-letter--verb">B</span>
+          <span id="vquiz-text-b" class="option-text"></span>
+        </button>
+      </div>
+
+      <div id="vquiz-feedback" class="quiz-feedback hidden">
+        <div id="vfeedback-icon" class="feedback-icon"></div>
+        <p id="vfeedback-label" class="feedback-label"></p>
+
+        <div id="vfeedback-correct-card" class="feedback-correct-card">
+          <p id="vfeedback-correct-text" class="feedback-correct-text"></p>
+          <p id="vfeedback-translation" class="feedback-translation"></p>
+        </div>
+
+        <div id="vfeedback-rule" class="feedback-rule hidden">
+          <p class="feedback-rule-title">Règle</p>
+          <p id="vfeedback-rule-text" class="feedback-rule-text"></p>
+          <p class="feedback-examples-title">Autre exemple :</p>
+          <p id="vfeedback-example" class="feedback-example-sentence"></p>
+        </div>
+
+        <button id="btn-vnext" class="btn-primary btn-primary--verb btn-next">Suivant</button>
+      </div>
+    </section>
+
+    <!-- VERB RESULTS SCREEN -->
+    <section id="screen-verb-results" class="screen">
+      <div class="results-content">
+        <h2 class="results-title">Résultats</h2>
+        <p id="vresults-score" class="results-score"></p>
+
+        <div class="results-bar-container">
+          <div class="progress-bar progress-bar--large">
+            <div id="vresults-progress" class="progress-bar__fill"></div>
+          </div>
+          <span id="vresults-percent" class="results-percent"></span>
+        </div>
+
+        <div id="vresults-verbs" class="results-suffixes">
+          <p class="results-suffixes-title">Verbes travaillés</p>
+        </div>
+
+        <div id="vresults-weakest" class="results-weakest hidden">
+          <p class="results-weakest-label">Point faible</p>
+          <p id="vresults-weakest-verb" class="results-weakest-suffix"></p>
+          <p id="vresults-weakest-rule" class="results-weakest-rule"></p>
+        </div>
+      </div>
+
+      <div class="results-footer">
+        <button id="btn-new-verb-lesson" class="btn-primary btn-primary--verb">Nouvelle leçon</button>
+        <button id="btn-verb-review-errors" class="btn-text hidden">Revoir les erreurs</button>
+      </div>
+
+      <div id="vresults-errors-review" class="results-errors-review hidden"></div>
+    </section>
+
     <!-- LESSON SCREEN -->
     <section id="screen-lesson" class="screen">
       <div class="lesson-header">
+        <button id="btn-genre-home" class="btn-text" aria-label="Retour">Accueil</button>
         <button id="btn-progress" class="btn-text" aria-label="Voir le progrès">Progrès</button>
       </div>
 
@@ -146,6 +272,7 @@
   </div>
 
   <script src="data.js"></script>
+  <script src="data-verbs.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
