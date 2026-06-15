@@ -974,11 +974,6 @@
 
   // ─── EVENT SETUP ───────────────────────────────────────
   function setup() {
-    // Splash → home
-    $('screen-splash').addEventListener('click', function () {
-      showHome();
-    });
-
     // Home → modes
     $('card-genre').addEventListener('click', newLesson);
     $('card-verb').addEventListener('click', newVerbLesson);
@@ -1073,12 +1068,7 @@
     state = load();
     setup();
 
-    var hasAnySessions = state.totalSessions > 0 || state.verbSessions > 0;
-    if (!hasAnySessions) {
-      showScreen('screen-splash');
-    } else {
-      showHome();
-    }
+    showHome();
   });
 
 })();

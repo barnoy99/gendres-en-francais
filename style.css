@@ -41,15 +41,15 @@ ul {
    ============================================================ */
 
 :root {
-  --bg-primary: #1a1a2e;
-  --bg-secondary: #16213e;
-  --bg-card: #0f3460;
-  --bg-card-hover: #1a4a7a;
-  --bg-overlay: rgba(10, 10, 20, 0.92);
+  --bg-primary: #232946;
+  --bg-secondary: #2a3158;
+  --bg-card: #343d6b;
+  --bg-card-hover: #3e4a7e;
+  --bg-overlay: rgba(25, 28, 50, 0.92);
 
-  --text-primary: #e8e8e8;
-  --text-secondary: #9a9ab8;
-  --text-heading: #f5f5f5;
+  --text-primary: #eceef5;
+  --text-secondary: #b0b4cc;
+  --text-heading: #f8f8fc;
 
   --color-m: #4a90d9;
   --color-m-bg: rgba(74, 144, 217, 0.14);
