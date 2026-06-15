@@ -41,42 +41,42 @@ ul {
    ============================================================ */
 
 :root {
-  --bg-primary: #232946;
-  --bg-secondary: #2a3158;
-  --bg-card: #343d6b;
-  --bg-card-hover: #3e4a7e;
-  --bg-overlay: rgba(25, 28, 50, 0.92);
+  --bg-primary: #f4f1eb;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f0edfa;
+  --bg-overlay: rgba(40, 40, 60, 0.6);
 
-  --text-primary: #eceef5;
-  --text-secondary: #b0b4cc;
-  --text-heading: #f8f8fc;
+  --text-primary: #3a3a4a;
+  --text-secondary: #7a7a8e;
+  --text-heading: #2a2a3a;
 
-  --color-m: #4a90d9;
-  --color-m-bg: rgba(74, 144, 217, 0.14);
-  --color-m-border: rgba(74, 144, 217, 0.4);
-  --color-f: #d4789c;
-  --color-f-bg: rgba(212, 120, 156, 0.14);
-  --color-f-border: rgba(212, 120, 156, 0.4);
+  --color-m: #3a7bd5;
+  --color-m-bg: rgba(58, 123, 213, 0.1);
+  --color-m-border: rgba(58, 123, 213, 0.35);
+  --color-f: #d4568e;
+  --color-f-bg: rgba(212, 86, 142, 0.1);
+  --color-f-border: rgba(212, 86, 142, 0.35);
 
-  --color-correct: #4caf7c;
-  --color-correct-bg: rgba(76, 175, 124, 0.12);
-  --color-incorrect: #e05555;
-  --color-incorrect-bg: rgba(224, 85, 85, 0.12);
+  --color-correct: #2e9e6a;
+  --color-correct-bg: rgba(46, 158, 106, 0.1);
+  --color-incorrect: #d94444;
+  --color-incorrect-bg: rgba(217, 68, 68, 0.08);
 
-  --color-accent: #c9a96e;
-  --color-accent-hover: #dfc08a;
+  --color-accent: #7c5cbf;
+  --color-accent-hover: #6a4aad;
 
-  --color-prep-a: #4caf7c;
-  --color-prep-a-bg: rgba(76, 175, 124, 0.14);
-  --color-prep-a-border: rgba(76, 175, 124, 0.4);
-  --color-prep-de: #d4a24c;
-  --color-prep-de-bg: rgba(212, 162, 76, 0.14);
-  --color-prep-de-border: rgba(212, 162, 76, 0.4);
-  --color-prep-none: #8a8aaa;
-  --color-prep-none-bg: rgba(138, 138, 170, 0.14);
-  --color-prep-none-border: rgba(138, 138, 170, 0.4);
-  --color-verb-accent: #4caf7c;
-  --color-verb-accent-hover: #5cc98e;
+  --color-prep-a: #2e9e6a;
+  --color-prep-a-bg: rgba(46, 158, 106, 0.1);
+  --color-prep-a-border: rgba(46, 158, 106, 0.35);
+  --color-prep-de: #d4962c;
+  --color-prep-de-bg: rgba(212, 150, 44, 0.1);
+  --color-prep-de-border: rgba(212, 150, 44, 0.35);
+  --color-prep-none: #7a7a8e;
+  --color-prep-none-bg: rgba(122, 122, 142, 0.1);
+  --color-prep-none-border: rgba(122, 122, 142, 0.35);
+  --color-verb-accent: #2e9e6a;
+  --color-verb-accent-hover: #25875a;
 
   --font-heading: 'Playfair Display', Georgia, serif;
 
@@ -85,8 +85,8 @@ ul {
   --radius-lg: 22px;
   --radius-pill: 50px;
 
-  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.35);
-  --shadow-soft: 0 2px 12px rgba(0, 0, 0, 0.25);
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-soft: 0 2px 10px rgba(0, 0, 0, 0.06);
 }
 
 /* ============================================================
@@ -323,7 +323,7 @@ ul {
 .btn-primary:hover,
 .btn-primary:active {
   background: var(--color-accent);
-  color: var(--bg-primary);
+  color: #fff;
 }
 
 .btn-primary:active {
@@ -381,7 +381,7 @@ ul {
 
 .progress-bar {
   height: 5px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.08);
   border-radius: 3px;
   overflow: hidden;
 }
@@ -420,7 +420,7 @@ ul {
   align-items: flex-start;
   gap: 0.85rem;
   background: var(--bg-card);
-  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
   border-radius: var(--radius-md);
   padding: 1.2rem 1rem;
   width: 100%;
@@ -647,7 +647,7 @@ ul {
 .suffix-row__bar {
   flex: 1;
   height: 6px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.08);
   border-radius: 3px;
   overflow: hidden;
 }
@@ -839,7 +839,7 @@ ul {
   padding: 1.5rem 1.25rem;
   border-radius: var(--radius-lg);
   background: var(--bg-card);
-  border: 1.5px solid rgba(255,255,255,0.08);
+  border: 1.5px solid rgba(0,0,0,0.08);
   box-shadow: var(--shadow-card);
   transition: transform 0.15s ease, border-color 0.25s ease;
   text-align: center;
@@ -933,7 +933,7 @@ ul {
   font-size: 0.95rem;
   line-height: 1.5;
   padding: 0.45rem 0;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
 }
 
 .verb-examples-list li:last-child { border-bottom: none; }
@@ -964,7 +964,7 @@ ul {
 .btn-primary--verb:hover,
 .btn-primary--verb:active {
   background: var(--color-verb-accent);
-  color: var(--bg-primary);
+  color: #fff;
 }
 
 .progress-bar__fill--verb {
