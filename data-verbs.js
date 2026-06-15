@@ -265,14 +265,14 @@ var VERBS = [
   //  PREPOSITION « À »
   // ════════════════════════════════════════════════════════════
 
-  { id:"accoutumer", verb:"s'accoutumer à", prep:"à", en:"to get accustomed to",
-    rule:"S'accoutumer est suivi de « à » devant un infinitif.",
+  { id:"forcer", verb:"forcer à", prep:"à", en:"to force to",
+    rule:"Forcer est suivi de « à » devant un infinitif.",
     sentences:[
-      {pre:"Il s'accoutume",post:"vivre seul.",en:"He's getting used to living alone."},
-      {pre:"Elle s'accoutume",post:"travailler de nuit.",en:"She's getting used to working at night."},
-      {pre:"On s'accoutume",post:"manger tard.",en:"We're getting used to eating late."},
-      {pre:"Je m'accoutume",post:"conduire à gauche.",en:"I'm getting used to driving on the left."},
-      {pre:"Ils s'accoutument",post:"parler français au travail.",en:"They're getting accustomed to speaking French at work."}
+      {pre:"On m'a forcé",post:"accepter.",en:"They forced me to accept."},
+      {pre:"Elle le force",post:"manger ses légumes.",en:"She forces him to eat his vegetables."},
+      {pre:"Personne ne te force",post:"venir.",en:"Nobody is forcing you to come."},
+      {pre:"Il m'a forcé",post:"recommencer.",en:"He forced me to start over."},
+      {pre:"On ne peut pas la forcer",post:"parler.",en:"We can't force her to talk."}
     ]},
 
   { id:"aider", verb:"aider à", prep:"à", en:"to help (to do sth)",
@@ -365,14 +365,14 @@ var VERBS = [
       {pre:"Il commence",post:"faire froid.",en:"It's starting to get cold."}
     ]},
 
-  { id:"consentir", verb:"consentir à", prep:"à", en:"to consent to / to agree to",
-    rule:"Consentir est suivi de « à » devant un infinitif.",
+  { id:"proposer", verb:"proposer de", prep:"de", en:"to suggest / to offer to",
+    rule:"Proposer est suivi de « de » devant un infinitif.",
     sentences:[
-      {pre:"Il consent",post:"nous aider.",en:"He agrees to help us."},
-      {pre:"Elle a consenti",post:"signer le contrat.",en:"She consented to sign the contract."},
-      {pre:"Ils consentent",post:"faire un effort.",en:"They agree to make an effort."},
-      {pre:"Il ne consent pas",post:"changer d'avis.",en:"He won't agree to change his mind."},
-      {pre:"Elle consent",post:"partager les frais.",en:"She agrees to share the costs."}
+      {pre:"Je propose",post:"aller au cinéma.",en:"I suggest going to the movies."},
+      {pre:"Elle m'a proposé",post:"m'aider.",en:"She offered to help me."},
+      {pre:"Il propose",post:"partager l'addition.",en:"He suggests splitting the bill."},
+      {pre:"On propose",post:"se retrouver à midi.",en:"We suggest meeting at noon."},
+      {pre:"Tu proposes",post:"faire quoi ce soir ?",en:"What do you suggest we do tonight?"}
     ]},
 
   { id:"continuer", verb:"continuer à", prep:"à", en:"to continue",
@@ -729,14 +729,14 @@ var VERBS = [
       {pre:"Dépêchons-nous",post:"rentrer.",en:"Let's hurry home."}
     ]},
 
-  { id:"efforcer", verb:"s'efforcer de", prep:"de", en:"to try hard to",
-    rule:"S'efforcer est suivi de « de » devant un infinitif.",
+  { id:"decider", verb:"décider de", prep:"de", en:"to decide to",
+    rule:"Décider est suivi de « de » devant un infinitif.",
     sentences:[
-      {pre:"Je m'efforce",post:"rester calme.",en:"I try hard to stay calm."},
-      {pre:"Elle s'efforce",post:"comprendre.",en:"She's trying hard to understand."},
-      {pre:"Il s'efforce",post:"être patient.",en:"He tries hard to be patient."},
-      {pre:"On s'efforce",post:"faire mieux.",en:"We try hard to do better."},
-      {pre:"Je m'efforce",post:"ne pas juger.",en:"I try hard not to judge."}
+      {pre:"J'ai décidé",post:"partir.",en:"I decided to leave."},
+      {pre:"Elle a décidé",post:"changer de travail.",en:"She decided to change jobs."},
+      {pre:"On a décidé",post:"rester une nuit de plus.",en:"We decided to stay one more night."},
+      {pre:"Il a décidé",post:"ne plus fumer.",en:"He decided to stop smoking."},
+      {pre:"Tu as décidé",post:"faire quoi ?",en:"What did you decide to do?"}
     ]},
 
   { id:"empecher", verb:"empêcher de", prep:"de", en:"to prevent from",
@@ -809,14 +809,14 @@ var VERBS = [
       {pre:"Ne fais pas semblant",post:"ne pas savoir.",en:"Don't pretend you don't know."}
     ]},
 
-  { id:"feindre", verb:"feindre de", prep:"de", en:"to feign / to pretend",
-    rule:"Feindre est suivi de « de » devant un infinitif.",
+  { id:"risquer", verb:"risquer de", prep:"de", en:"to risk / to be likely to",
+    rule:"Risquer est suivi de « de » devant un infinitif.",
     sentences:[
-      {pre:"Il feint",post:"ne pas entendre.",en:"He pretends not to hear."},
-      {pre:"Elle feint",post:"être malade.",en:"She feigns being sick."},
-      {pre:"Il feint",post:"ne pas comprendre.",en:"He pretends not to understand."},
-      {pre:"Elle feint",post:"s'intéresser.",en:"She pretends to be interested."},
-      {pre:"Il feint",post:"dormir pour ne pas répondre.",en:"He pretends to sleep to avoid answering."}
+      {pre:"Il risque",post:"pleuvoir cet après-midi.",en:"It might rain this afternoon."},
+      {pre:"Tu risques",post:"rater ton train.",en:"You might miss your train."},
+      {pre:"Elle risque",post:"ne pas être contente.",en:"She might not be happy."},
+      {pre:"On risque",post:"arriver en retard.",en:"We might arrive late."},
+      {pre:"Il risque",post:"perdre son emploi.",en:"He might lose his job."}
     ]},
 
   { id:"finir", verb:"finir de", prep:"de", en:"to finish",
@@ -989,14 +989,14 @@ var VERBS = [
       {pre:"Il ne se souvient pas",post:"avoir dit ça.",en:"He doesn't remember having said that."}
     ]},
 
-  { id:"tacher", verb:"tâcher de", prep:"de", en:"to try to",
-    rule:"Tâcher est suivi de « de » devant un infinitif.",
+  { id:"rever", verb:"rêver de", prep:"de", en:"to dream of",
+    rule:"Rêver est suivi de « de » devant un infinitif.",
     sentences:[
-      {pre:"Tâche",post:"ne pas être en retard.",en:"Try not to be late."},
-      {pre:"Je tâche",post:"faire de mon mieux.",en:"I try to do my best."},
-      {pre:"Elle tâche",post:"rester positive.",en:"She tries to stay positive."},
-      {pre:"On tâche",post:"trouver une solution.",en:"We're trying to find a solution."},
-      {pre:"Tâchez",post:"finir avant vendredi.",en:"Try to finish before Friday."}
+      {pre:"Je rêve",post:"voyager au Japon.",en:"I dream of traveling to Japan."},
+      {pre:"Elle rêve",post:"devenir actrice.",en:"She dreams of becoming an actress."},
+      {pre:"Il rêve",post:"vivre au bord de la mer.",en:"He dreams of living by the sea."},
+      {pre:"On rêve tous",post:"être libres.",en:"We all dream of being free."},
+      {pre:"Tu rêves",post:"faire quoi plus tard ?",en:"What do you dream of doing later?"}
     ]}
 
 ];
