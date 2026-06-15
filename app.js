@@ -35,7 +35,8 @@
       verbQueue: [],
       verbQueueIndex: 0,
       verbRecentSentences: [],
-      verbSessions: 0
+      verbSessions: 0,
+      deletedVerbs: []
     };
   }
 
@@ -49,7 +50,9 @@
       s.verbQueueIndex = 0;
       s.verbRecentSentences = [];
       s.verbSessions = 0;
+      s.deletedVerbs = [];
     }
+    if (!s.deletedVerbs) s.deletedVerbs = [];
     return s;
   }
 
@@ -96,6 +99,18 @@
       if (SUFFIXES[i].id === id) return SUFFIXES[i];
     }
     return null;
+  }
+
+  function isVerbDeleted(id) {
+    return state.deletedVerbs && state.deletedVerbs.indexOf(id) >= 0;
+  }
+
+  function activeVerbs() {
+    var result = [];
+    for (var i = 0; i < VERBS.length; i++) {
+      if (!isVerbDeleted(VERBS[i].id)) result.push(VERBS[i]);
+    }
+    return result;
   }
 
   function verbById(id) {
@@ -561,9 +576,10 @@
   function renderVerbProgress() {
     var list = $('progress-list');
     list.innerHTML = '';
+    var av = activeVerbs();
 
-    for (var i = 0; i < VERBS.length; i++) {
-      var v = VERBS[i];
+    for (var i = 0; i < av.length; i++) {
+      var v = av[i];
       var sc = state.verbScores[v.id];
       var p = sc && sc.total ? Math.round(sc.correct / sc.total * 100) : 0;
       var hasData = sc && sc.total > 0;
@@ -620,8 +636,9 @@
 
   // ─── VERB QUEUE (weighted rotation) ───────────────────
   function buildVerbQueue() {
+    var av = activeVerbs();
     var ids = [];
-    for (var i = 0; i < VERBS.length; i++) ids.push(VERBS[i].id);
+    for (var i = 0; i < av.length; i++) ids.push(av[i].id);
     ids.sort(function (a, b) { return verbWeak(b) - verbWeak(a); });
 
     var q = ids.slice();
@@ -641,6 +658,13 @@
     }
     var id = state.verbQueue[state.verbQueueIndex];
     state.verbQueueIndex++;
+    if (isVerbDeleted(id)) {
+      state.verbQueue = buildVerbQueue();
+      state.verbQueueIndex = 0;
+      if (!state.verbQueue.length) return null;
+      id = state.verbQueue[state.verbQueueIndex];
+      state.verbQueueIndex++;
+    }
     save();
     return verbById(id);
   }
@@ -705,12 +729,13 @@
       usedSentences[lessonVerb.id][indices[i]] = true;
     }
 
+    var av = activeVerbs();
     var others = [];
     var weights = [];
-    for (var i = 0; i < VERBS.length; i++) {
-      if (VERBS[i].id !== lessonVerb.id) {
-        others.push(VERBS[i]);
-        weights.push(0.1 + 0.9 * Math.pow(verbWeak(VERBS[i].id), 0.5));
+    for (var i = 0; i < av.length; i++) {
+      if (av[i].id !== lessonVerb.id) {
+        others.push(av[i]);
+        weights.push(0.1 + 0.9 * Math.pow(verbWeak(av[i].id), 0.5));
       }
     }
 
@@ -1030,6 +1055,20 @@
     });
 
     $('btn-vnext').addEventListener('click', verbAdvance);
+
+    $('btn-dismiss-verb').addEventListener('click', function () {
+      if (!vquiz) return;
+      var q = vquiz.questions[vquiz.index];
+      if (!q) return;
+      var verbId = q.verbId;
+      if (state.deletedVerbs.indexOf(verbId) < 0) {
+        state.deletedVerbs.push(verbId);
+        state.verbQueue = [];
+        state.verbQueueIndex = 0;
+        save();
+      }
+      verbAdvance();
+    });
 
     $('btn-new-verb-lesson').addEventListener('click', newVerbLesson);
 
