@@ -545,6 +545,18 @@
     showScreen('screen-results');
   }
 
+  function showToast(msg) {
+    var el = document.createElement('div');
+    el.className = 'toast';
+    el.textContent = msg;
+    document.body.appendChild(el);
+    setTimeout(function () { el.classList.add('toast--visible'); }, 10);
+    setTimeout(function () {
+      el.classList.remove('toast--visible');
+      setTimeout(function () { el.remove(); }, 300);
+    }, 2000);
+  }
+
   function escHtml(s) {
     var d = document.createElement('div');
     d.textContent = s;
@@ -1060,13 +1072,15 @@
       if (!vquiz) return;
       var q = vquiz.questions[vquiz.index];
       if (!q) return;
-      var verbId = q.verbId;
-      if (state.deletedVerbs.indexOf(verbId) < 0) {
-        state.deletedVerbs.push(verbId);
+      var verb = q.verb;
+      if (!confirm('Retirer « ' + verb.verb + ' » définitivement ?')) return;
+      if (state.deletedVerbs.indexOf(verb.id) < 0) {
+        state.deletedVerbs.push(verb.id);
         state.verbQueue = [];
         state.verbQueueIndex = 0;
         save();
       }
+      showToast('« ' + verb.verb + ' » retiré');
       verbAdvance();
     });
 
